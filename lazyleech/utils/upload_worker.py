@@ -193,12 +193,12 @@ async def _upload_file(client, message, reply, filename, filepath, force_documen
                                         break
                             else:
                                 width = height = 0
-                            resp = await reply.reply_video(filepath, thumb=thumbnail, caption=filename,
+                            resp = await reply.reply_video(filepath, thumb=thumbnail, caption=filename+"\n#Uploaded,
                                                            duration=duration, width=width, height=height,
                                                            parse_mode=None, progress=progress_callback,
                                                            progress_args=progress_args)
                         else:
-                            resp = await reply.reply_document(filepath, thumb=thumbnail, caption=filename,
+                            resp = await reply.reply_document(filepath, thumb=thumbnail, caption=filename+"\n#Uploaded,
                                                               parse_mode=None, progress=progress_callback,
                                                               progress_args=progress_args)
                     except Exception:
@@ -234,13 +234,14 @@ async def progress_callback(current, total, client, reply, filename, user_id):
             upload_speed = format_bytes((total - current) / (time.time() - start_time))
         else:
             upload_speed = '0 B'
-        text = f'''Uploading {html.escape(filename)}...
-<code>{html.escape(return_progress_string(current, total))}</code>
+        text = f'''<b>📤 Uploading:</b> <i>{html.escape(filename)}</i>
 
+{html.escape(return_progress_string(current, total))}
 <b>Total Size:</b> {format_bytes(total)}
 <b>Uploaded Size:</b> {format_bytes(current)}
 <b>Upload Speed:</b> {upload_speed}/s
-<b>ETA:</b> {calculate_eta(current, total, start_time)}'''
+<b>ETA:</b> {calculate_eta(current, total, start_time)}
+#Uploading'''
         if prevtext != text:
             await reply.edit_text(text)
             prevtext = text
