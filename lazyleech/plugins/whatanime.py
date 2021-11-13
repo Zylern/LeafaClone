@@ -102,6 +102,8 @@ help_dict['extras'] = ('Extras',
 '''<b>Miscs</b>
 /mediainfo <i>[replied media]</i> 
 /whatanime <i>[replied media]</i>
+/mediainfo <i>[replied media]</i>
+/anime <i>Anime name</i>
 
 <b>Youtube-DL</b>
 /ytdl <i>Youtube Link</i>
