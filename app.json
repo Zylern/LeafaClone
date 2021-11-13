@@ -1,0 +1,37 @@
+{
+  "name": "Telegram Torrent Leecher",
+  "description": "A Telegram Torrent (and youtube-dl) Leecher based on Pyrogram.",
+  "keywords": [
+    "telegram"
+  ],
+  "repository": "https://github.com/reaitten/tgtlg",
+  "success_url": "https://t.me/tgleechsupport",
+  "website": "https://github.com/reaitten/tgtlg",
+  "env": {
+    "ENV": {
+      "description": "Setting this to ANYTHING will enable webhooks when in env mode",
+      "value": "ANYTHING"
+    },
+    "API_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+    },
+    "BOT_TOKEN": {
+      "description": "get this value from @BotFather",
+      "value": ""
+    },
+    "TESTMODE": {
+      "description": "1 or 0",
+      "value": "0"
+    },
+    "ADMIN_CHATS": {
+      "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
+      "value": ""
+    }
+  },
+  "stack": "container"
+}
