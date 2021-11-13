@@ -193,12 +193,12 @@ async def _upload_file(client, message, reply, filename, filepath, force_documen
                                         break
                             else:
                                 width = height = 0
-                            resp = await reply.reply_video(filepath, thumb=thumbnail, caption=filename+"\n#Uploaded,
+                            resp = await reply.reply_video(filepath, thumb=thumbnail, caption=filename+"\n#Uploaded",
                                                            duration=duration, width=width, height=height,
                                                            parse_mode=None, progress=progress_callback,
                                                            progress_args=progress_args)
                         else:
-                            resp = await reply.reply_document(filepath, thumb=thumbnail, caption=filename+"\n#Uploaded,
+                            resp = await reply.reply_document(filepath, thumb=thumbnail, caption=filename+"\n#Uploaded",
                                                               parse_mode=None, progress=progress_callback,
                                                               progress_args=progress_args)
                     except Exception:
