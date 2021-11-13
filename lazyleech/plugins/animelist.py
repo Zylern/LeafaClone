@@ -202,12 +202,12 @@ async def anime_search(client, message):
                     ]
         if image:
             try:
-                await message.reply_photo(image, caption=msg, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(image, caption=msg, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(buttons))
             except:
                 msg += f" [〽️]({image})"
-                await message.edit(msg)
+                await message.edit(msg, parse_mode=ParseMode.MARKDOWN)
         else:
-            await message.edit(msg)
+            await message.edit(msg, parse_mode=ParseMode.MARKDOWN)
 
 @Client.on_message(filters.command('manga') & filters.chat(ALL_CHATS))
 async def manga_search(client, message):
@@ -244,7 +244,7 @@ async def manga_search(client, message):
         ms_g += f"_{json.get('description', None)}_"
         if image:
             try:
-                await message.reply_photo(image, caption=ms_g)
+                await message.reply_photo(image, parse_mode=ParseMode.MARKDOWN, caption=ms_g)
             except:
                 ms_g += f" [〽️]({image})"
                 await message.reply(ms_g)
