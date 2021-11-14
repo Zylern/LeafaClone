@@ -225,7 +225,7 @@ async def handle_leech(client, message, gid, reply, user_id, flags):
 <b>ETA:</b> {calculate_eta(completed_length, total_length, start_time)}
 '''
         if seeders is not None:
-            text += f'\n<b>Seeders:</b> {seeders}'
+            text += f'<b>Seeders:</b> {seeders}'
         if peers is not None:
             text += f'\n<b>{"Peers" if seeders is not None else "Connections"}:</b> {peers}'
         if (time.time() - last_edit) > PROGRESS_UPDATE_DELAY and text != prevtext:
