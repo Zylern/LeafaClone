@@ -32,7 +32,7 @@ async def return_search(query, page=1, sukebei=False):
                     break
                 link = i['link']
                 pubbdate = i["published"]
-                newdate = (pubbdate[0])
+                newdate = (pubbdate)
                 publishedz = newdate.replace("-0000", "")
                 splitted = urlsplit(link)
                 if splitted.scheme == 'magnet' and splitted.query:
