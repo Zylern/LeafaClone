@@ -49,7 +49,7 @@ async def return_search(query, page=1, sukebei=False):
         ttl = time.time()
         used_search_info[query] = results, ttl
         try:
-            return results[page], len(results), ttl
+            return results[page], len(results), ttl, fulltext
         except IndexError:
             return '', len(results), ttl
 
