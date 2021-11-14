@@ -1,18 +1,3 @@
-# lazyleech - Telegram bot primarily to leech from torrents and upload to Telegram
-# Copyright (c) 2021 lazyleech developers <theblankx protonmail com, meliodas_bot protonmail com>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published
-# by the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import time
 import html
@@ -46,6 +31,7 @@ async def return_search(query, page=1, sukebei=False):
                 if not int(i['nyaa_seeders']):
                     break
                 link = i['link']
+                pubdate = {i["published"]}.replace("-0000", "")
                 splitted = urlsplit(link)
                 if splitted.scheme == 'magnet' and splitted.query:
                     link = f'<code>{link}</code>'
@@ -54,7 +40,7 @@ async def return_search(query, page=1, sukebei=False):
 <b>Size:</b> {i["nyaa_size"]}
 <b>Seeders:</b> {i["nyaa_seeders"]}
 <b>Leechers:</b> {i["nyaa_leechers"]}
-<b>Published:</b> {i["published"]}
+<b>Published:</b> {i["pubdate"]}
 <b>Category:</b> {i["nyaa_category"]}\n\n'''
                 futtext = text + newtext
                 if (a and not a % 10) or len((await parser.parse(futtext))['message']) > 4096:
