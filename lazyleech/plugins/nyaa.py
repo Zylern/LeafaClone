@@ -49,9 +49,9 @@ async def return_search(query, page=1, sukebei=False):
         ttl = time.time()
         used_search_info[query] = results, ttl
         try:
-            return results[page], len(results), ttl
+            return results[page], len(results), ttl, resp.text
         except IndexError:
-            return '', len(results), ttl
+            return '', len(results), ttl, resp.text
 
 message_info = dict()
 ignore = set()
@@ -80,7 +80,7 @@ async def init_search(client, message, query, sukebei):
         reply = await message.reply_text(result, reply_markup=InlineKeyboardMarkup([
             buttons
         ]))
-        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, ttl, query, 1, pages, sukebei
+        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, resp.text, query, 1, pages, sukebei
 
 @Client.on_callback_query(custom_filters.callback_data('nyaa_nop') & filters.chat(ALL_CHATS))
 async def nyaa_nop(client, callback_query):
