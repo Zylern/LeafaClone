@@ -80,7 +80,7 @@ async def init_search(client, message, query, sukebei):
         reply = await message.reply_text(result, reply_markup=InlineKeyboardMarkup([
             buttons
         ]))
-        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, ttl, fulltext, 1, pages, sukebei
+        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, text, results, 1, pages, sukebei
 
 @Client.on_callback_query(custom_filters.callback_data('nyaa_nop') & filters.chat(ALL_CHATS))
 async def nyaa_nop(client, callback_query):
