@@ -32,7 +32,8 @@ async def return_search(query, page=1, sukebei=False):
                     break
                 link = i['link']
                 pubbdate = {i["published"]}
-                publish = pubbdate.replace("-0000", "")
+                newdate = (pubbdate[0])
+                publishedz = newdate.replace("-0000", "")
                 splitted = urlsplit(link)
                 if splitted.scheme == 'magnet' and splitted.query:
                     link = f'<code>{link}</code>'
@@ -41,7 +42,7 @@ async def return_search(query, page=1, sukebei=False):
 <b>Size:</b> {i["nyaa_size"]}
 <b>Seeders:</b> {i["nyaa_seeders"]}
 <b>Leechers:</b> {i["nyaa_leechers"]}
-<b>Published:</b> {publish}
+<b>Published:</b> {publishedz}
 <b>Category:</b> {i["nyaa_category"]}\n\n'''
                 futtext = text + newtext
                 if (a and not a % 10) or len((await parser.parse(futtext))['message']) > 4096:
