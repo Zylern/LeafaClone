@@ -31,7 +31,7 @@ async def return_search(query, page=1, sukebei=False):
                 if not int(i['nyaa_seeders']):
                     break
                 link = i['link']
-                pubbdate = {i["published"]}
+                pubbdate = i["published"]
                 newdate = (pubbdate[0])
                 publishedz = newdate.replace("-0000", "")
                 splitted = urlsplit(link)
