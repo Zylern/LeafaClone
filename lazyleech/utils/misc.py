@@ -88,7 +88,7 @@ async def convert_to_jpg(original, end):
     return '[' + '=' * filled_length + ' ' * (30 - filled_length) + ']'
 """
 
-
+"""
 def return_progress_string(current, total):
     completed = current / 8
     total = total / 8
@@ -102,7 +102,26 @@ def return_progress_string(current, total):
     p_str += ' ' * (PROGRESS_MAX_SIZE - cFull)
     p_str = f"[{p_str}]"
     return p_str
+    
+"""
 
+
+def return_progress_string(current, total):
+    completed = (total - current) / 8
+    total = total / 8
+    if total == 0:
+        p = 0
+    else:
+        p = round(completed * 100 / total)
+    p = min(max(p, 0), 100)
+    cFull = p // 8
+    cPart = p % 8 - 1
+    p_str = '█' * cFull
+    if cPart >= 0:
+        p_str += PROGRESS_INCOMPLETE[cPart]
+    p_str += '░' * (PROGRESS_MAX_SIZE - cFull)
+    p_str = f"[{p_str}]"
+    return p_str
 
 
 
