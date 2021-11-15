@@ -107,7 +107,7 @@ def return_progress_string(current, total):
 
 
 def return_progress_string(current, total):
-    completed = (total - current) / 8
+    completed = current / 8
     total = total / 8
     if total == 0:
         p = 0
