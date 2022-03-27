@@ -56,10 +56,9 @@ async def mediainfo(client, message):
 <h2>JSON</h2>
 <pre>{x_media}</pre>
 <br>
-<h2>DETAILS</h2>
-<pre>{out or 'Not Supported'}</pre>
+{out or 'Not Supported'}
 """
     text_ = media_type.split(".")[-1].upper()
     link = post_to_telegraph(media_type, body_text)
     markup = InlineKeyboardMarkup([[InlineKeyboardButton(text=text_, url=link)]])
-    await process.edit_text("✨ <b>MEDIA INFO</b>", reply_markup=markup)
+    await process.edit_text("<b>MEDIA INFO</b>", reply_markup=markup)
