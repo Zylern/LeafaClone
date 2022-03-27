@@ -43,7 +43,7 @@ if os.environ.get('DB_URL'):
                 await A.insert_one({'_id': str(da.find('item').find('title')), 'site': i})
         for i in cr:
             for ii in ADMIN_CHATS:
-                msg = await app.send_message(ii, f"**New Anime Released!**\n\n__Name:__ {i[0]}\n__Link:__ {i[1]}\n\n@admin")
+                msg = await app.send_message(ii, f"New Anime Released!\n\nName: {i[0]}\nLink: {i[1]}\n\n@SR1181")
                 flags = (ForceDocumentFlag,)
                 await initiate_torrent(app, msg, i[1], flags)
 
