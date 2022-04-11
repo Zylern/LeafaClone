@@ -217,12 +217,13 @@ async def handle_leech(client, message, gid, reply, user_id, flags):
         text = f'''<b>📥 Downloading:</b> <i>{html.escape(tor_name)}</i>
 
 {html.escape(return_progress_string(completed_length, total_length))}
-<b>GID:</b> <code>{gid}</code>
 <b>Status:</b> {status}
 <b>Total Size:</b> {formatted_total_length}
 <b>Downloaded Size:</b> {formatted_completed_length}
 <b>Download Speed:</b> {download_speed}
 <b>ETA:</b> {calculate_eta(completed_length, total_length, start_time)}
+<code>/cancel {gid}</code>
+
 '''
         if seeders is not None:
             text += f'<b>Seeders:</b> {seeders}'
