@@ -38,7 +38,7 @@ async def return_search(query, page=1, sukebei=False):
                 if splitted.scheme == 'magnet' and splitted.query:
                     link = f'<code>{link}</code>'
                 newtext = f'''{a + 1}. {html.escape(i["title"])}
-<b>Link:</b> {link}
+<b>Link:</b> <code>{link}</code>
 <b>Size:</b> {i["nyaa_size"]}
 <b>Seeders:</b> {i["nyaa_seeders"]}
 <b>Leechers:</b> {i["nyaa_leechers"]}
